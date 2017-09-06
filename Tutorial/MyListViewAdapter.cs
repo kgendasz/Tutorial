@@ -36,7 +36,7 @@ namespace Tutorial
 
 
         public override long GetItemId(int position)
-        {
+        {      
             return position; 
         }
 

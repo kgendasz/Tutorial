@@ -26,6 +26,7 @@ namespace Tutorial
             MyListViewAdapter adapter = new MyListViewAdapter(this, oList);
 
             mListView.Adapter = adapter;
+            mListView.Adapter = adapter;
         }
     }
 }
