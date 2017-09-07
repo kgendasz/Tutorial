@@ -8,7 +8,7 @@ namespace Tutorial
     [Activity(Label = "Tutorial", MainLauncher = true)]
     public class MainActivity : Activity
     {
-        private List<string> oList = new List<string>();
+        private List<Person> oList = new List<Person>();
         private ListView mListView;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -19,14 +19,15 @@ namespace Tutorial
             SetContentView(Resource.Layout.Main);
             
             mListView = FindViewById<ListView>(Resource.Id.MyListView);
-            oList.Add("Bob");
-            oList.Add("Tom");
-            oList.Add("Jim");
+
+            oList.Add(new Person {FirstName = "Joe", LastName = "Smith", Age = "22" , Gender = "male"} );
+            oList.Add(new Person { FirstName = "Joe2", LastName = "Smith2", Age = "23", Gender = "male2" });
+            oList.Add(new Person { FirstName = "Joe3", LastName = "Smith3", Age = "24", Gender = "male3" });
 
             MyListViewAdapter adapter = new MyListViewAdapter(this, oList);
 
             mListView.Adapter = adapter;
-            mListView.Adapter = adapter;
+         
         }
     }
 }

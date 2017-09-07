@@ -12,18 +12,18 @@ using Android.Widget;
 
 namespace Tutorial
 {
-    class MyListViewAdapter : BaseAdapter<string>
+    class MyListViewAdapter : BaseAdapter<Person>
     {
-        private List<string> mItems;
+        private List<Person> mItems;
         private Context mContext;
 
-        public MyListViewAdapter(Context context, List<string> items)
+        public MyListViewAdapter(Context context, List<Person> items)
         {
             mItems = items;
             mContext = context;
         }
 
-        public override string this[int position]
+        public override Person this[int position]
         {
             get { return mItems[position]; }
 
@@ -49,9 +49,18 @@ namespace Tutorial
 
             }
 
-            TextView txtName = row.FindViewById<TextView>(Resource.Id.txtName);
-            txtName.Text = mItems[position];
+            TextView txtFirstName = row.FindViewById<TextView>(Resource.Id.txtFirstName);
+            TextView txtLastName = row.FindViewById<TextView>(Resource.Id.txtLastName);
+            TextView txtAge = row.FindViewById<TextView>(Resource.Id.txtAge);
+            TextView txtGender = row.FindViewById<TextView>(Resource.Id.txtGender);
+
+            txtFirstName.Text = mItems[position].FirstName;
+            txtLastName.Text = mItems[position].LastName;
+            txtAge.Text = mItems[position].Age;
+            txtGender.Text = mItems[position].Gender;
+
             return row;
+           
         }
     }
 }
