@@ -2,6 +2,7 @@
 using Android.Widget;
 using Android.OS;
 using System.Collections.Generic;
+using System;
 
 namespace Tutorial
 {
@@ -27,7 +28,32 @@ namespace Tutorial
             MyListViewAdapter adapter = new MyListViewAdapter(this, oList);
 
             mListView.Adapter = adapter;
-         
+            mListView.ItemClick += MListView_ItemClick;
+            mListView.ItemLongClick += MListView_ItemLongClick;
+
+            mListView.ItemClick += ItemClick2;
+        }
+
+        private void ItemClick2(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            Console.WriteLine("Second Method");
+        }
+
+        private void MListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
+        {
+            Console.WriteLine(oList[e.Position].LastName);
+        }
+
+        
+
+        private void MListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            Console.WriteLine(oList[e.Position].FirstName);
+        }
+
+        private void MListView_Click(object sender, System.EventArgs e)
+        {
+           ;
         }
     }
 }
